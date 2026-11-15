@@ -1,0 +1,12 @@
+action: "ruby/credits_generator" {
+    url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/credits_generator.tar.xz"
+    version: "v0.1.20261115"
+    hash: "75fc7823d83bb045959bf682d93d7a30cf6455253cdd4f256decd8f789187587"
+}
+
+action: "ruby/color" {
+    url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/color.tar.xz"
+    version: "v0.1.20261115"
+    hash: "12471e1a6b3b73fbdd316fd3557f63d0d6aac9cb02ee48508d7485cce0d7b43e"
+}
+
