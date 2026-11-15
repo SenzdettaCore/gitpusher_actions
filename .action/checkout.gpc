@@ -1,6 +1,6 @@
 // komen
 
 checkout: {
-    'ruby/color' -> 'newdir/color.rb'
-    'ruby/credits_generator' -> 'newdir/credits_generator.rb'
+    'ruby/color' -> '.action/color.rb'
+    'ruby/credits_generator' -> '.action/credits_generator.rb'
 }
