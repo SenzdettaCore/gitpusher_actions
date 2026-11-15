@@ -1,9 +1,23 @@
 #!/usr/bin/env ruby
 # https://github.com/SenzdettaCore/gitpusher_actions
 
+# Copyright (C) 2026 Senzdetta (https://github.com/Senzdetta)
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published
+# by the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 require "yaml"
 require "fileutils"
-require_relative "module/color"
 
 ROOT = ENV.fetch("__root_project__").freeze
 CONFIG = File.join(ROOT, ".action", "config", "credits_generator.yaml").freeze
@@ -15,8 +29,9 @@ ITEM_KEYS = %w[module type path license license_file readme_file modified_info].
 
 if ! File.exist?(CONFIG) then
     printf(
-        "%s[!] %sConfig: %s%s %snot found!\n",
-        Color.R, Color.N, Color.GG, CONFIG, Color.N,
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[0mnot found!\n",
+        CONFIG,
     )
     exit(1)
 end
@@ -25,8 +40,9 @@ cfg = YAML.safe_load_file(CONFIG)
 
 if ! cfg.is_a?(Hash) then
     printf(
-        "%s[!] %sConfig: %s%s %sempty or invalid format!\n",
-        Color.R, Color.N, Color.GG, CONFIG, Color.N,
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[0mempty or invalid format!\n",
+        CONFIG,
     )
     exit(1)
 end
@@ -36,8 +52,8 @@ sources = cfg["sources"]
 
 if ! sources.is_a?(Array) || sources.empty? then
     printf(
-        "%s[!] %sConfig key: %ssources %smust be a list!\n",
-        Color.R, Color.N, Color.GG, Color.N,
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mConfig key: \x1b[0;32msources \x1b[0mmust be a list!\n",
     )
     exit(1)
 end
@@ -47,9 +63,8 @@ blocks = []
 sources.each do |source|
     if ! source.is_a?(Hash) then
         printf(
-            "%s[!] %sConfig key: %ssource %smust be a map %s(%skey: %svalue%s)%s\n",
-            Color.R, Color.N, Color.GG, Color.N, Color.DG,
-            Color.N, Color.GG, Color.DG, Color.N,
+            $stderr,
+            "\x1b[1;31m[!] \x1b[0mConfig key: \x1b[0;32msource \x1b[0mmust be a map \x1b[1;90m(\x1b[0;32mkey: \x1b[0;36mvalue\x1b[1;90m)\x1b[0m\n",
         )
         exit(1)
     end
@@ -57,9 +72,9 @@ sources.each do |source|
     SOURCE_KEYS.each do |key|
         if source[key].to_s.strip.empty? then
             printf(
-                "%s[!] %sConfig: %s%s %s-> %s%s %sis empty field!\n",
-                Color.R, Color.N, Color.GG, source["name"], Color.DG,
-                Color.GG, key, Color.N,
+                $stderr,
+                "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s \x1b[0mis empty field!\n",
+                source["name"], key,
             )
             exit(1)
         end
@@ -67,9 +82,9 @@ sources.each do |source|
 
     if ! source["items"].is_a?(Array) then
         printf(
-            "%s[!] %sConfig: %s%s %s-> %sitems %smust be a list!\n",
-            Color.R, Color.N, Color.GG, source["name"], Color.DG,
-            Color.GG, Color.N,
+            $stderr,
+            "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32mitems \x1b[0mmust be a list!\n",
+            source["name"],
         )
         exit(1)
     end
@@ -79,9 +94,9 @@ sources.each do |source|
     source["items"].each do |item|
         if ! item.is_a?(Hash) then
             printf(
-                "%s[!] %sConfig: %s%s %s-> %sitem %smust be a map %s(%skey: %svalue%s)%s\n",
-                Color.R, Color.N, Color.GG, source["name"], Color.DG,
-                Color.GG, Color.N, Color.DG, Color.N, Color.GG, Color.DG, Color.N,
+                $stderr,
+                "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32mitem \x1b[0mmust be a map \x1b[1;90m(\x1b[0;32mkey: \x1b[0;36mvalue\x1b[1;90m)\x1b[0m\n",
+                source["name"],
             )
             exit(1)
         end
@@ -89,9 +104,9 @@ sources.each do |source|
         ITEM_KEYS.each do |key|
             if item[key].to_s.strip.empty? then
                 printf(
-                    "%s[!] %sConfig: %s%s %s/ %s%s %s-> %s%s %sis empty field!\n",
-                    Color.R, Color.N, Color.GG, source["name"], Color.DG,
-                    Color.GG, item["module"], Color.DG, Color.GG, key, Color.N,
+                    $stderr,
+                    "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[1;90m/ \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s \x1b[0mis empty field!\n",
+                    source["name"], item["module"], key,
                 )
                 exit(1)
             end
@@ -99,27 +114,27 @@ sources.each do |source|
 
         if ! File.exist?(File.join(ROOT, item["license_file"])) then
             printf(
-                "%s[!] %sFile: %s%s %s/ %s%s %s-> %s%s %snot found!\n",
-                Color.R, Color.N, Color.GG, source["name"], Color.DG,
-                Color.GG, item["module"], Color.DG, Color.GG, item["license_file"], Color.N,
+                $stderr,
+                "\x1b[1;31m[!] \x1b[0mFile: \x1b[0;32m%s \x1b[1;90m/ \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s \x1b[0mnot found!\n",
+                source["name"], item["module"], item["license_file"],
             )
             exit(1)
         end
 
         if ! File.exist?(File.join(ROOT, item["readme_file"])) then
             printf(
-                "%s[!] %sFile: %s%s %s/ %s%s %s-> %s%s %snot found!\n",
-                Color.R, Color.N, Color.GG, source["name"], Color.DG,
-                Color.GG, item["module"], Color.DG, Color.GG, item["readme_file"], Color.N,
+                $stderr,
+                "\x1b[1;31m[!] \x1b[0mFile: \x1b[0;32m%s \x1b[1;90m/ \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s \x1b[0mnot found!\n",
+                source["name"], item["module"], item["readme_file"],
             )
             exit(1)
         end
 
         if ! File.exist?(File.join(ROOT, item["modified_info"])) then
             printf(
-                "%s[!] %sFile: %s%s %s/ %s%s %s-> %s%s %snot found!\n",
-                Color.R, Color.N, Color.GG, source["name"], Color.DG,
-                Color.GG, item["module"], Color.DG, Color.GG, item["modified_info"], Color.N,
+                $stderr,
+                "\x1b[1;31m[!] \x1b[0mFile: \x1b[0;32m%s \x1b[1;90m/ \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s \x1b[0mnot found!\n",
+                source["name"], item["module"], item["modified_info"],
             )
             exit(1)
         end
@@ -152,9 +167,8 @@ FileUtils.mkdir_p(File.dirname(OUTPUT))
 File.write(OUTPUT, "# #{heading}\n\n#{html.chomp}")
 
 printf(
-    "%s[+] %sGenerated: %s%s %s(%s%d %ssources%s)%s\n",
-    Color.GG, Color.N, Color.GG, OUTPUT, Color.DG,
-    Color.GG, sources.length, Color.N, Color.DG, Color.N,
+    "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m%d \x1b[0;37msources\x1b[1;90m)\x1b[0m\n",
+    OUTPUT, sources.length,
 )
 
 # Copyright (c) 2026 Senzdetta
