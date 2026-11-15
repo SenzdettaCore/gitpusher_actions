@@ -1,6 +1,0 @@
-// komen
-
-checkout: {
-    'ruby/color' -> '.action/module/color.rb'
-    'ruby/credits_generator' -> '.action/credits_generator.rb'
-}
