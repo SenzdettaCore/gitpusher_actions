@@ -208,7 +208,7 @@ sections.each do |entry|
     end
 end
 
-blocks.push("<code>Made with ❤ ~love</code>")
+blocks.push("<code>Made with ❤ ~love.</code>")
 
 output = File.join(ROOT, cfg["output"].to_s.strip)
 
