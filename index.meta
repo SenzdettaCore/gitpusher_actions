@@ -22,3 +22,9 @@ action: "ruby/whymd_generator" {
     hash: "d0d0b6ac0000b0b152f4ef51c160361e6f25ac53b7fdd79846892edbd5fd636a"
 }
 
+action: "ruby/version_generator" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/version_generator.tar.xz"
+    version: "v0.1.20261116"
+    hash: "f9f3ec1d6a5cf703e2351298029e9d01762e355088ae656b5ed7a0ac8e9c22e6"
+}
+
