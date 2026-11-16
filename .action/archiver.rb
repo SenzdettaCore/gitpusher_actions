@@ -28,7 +28,7 @@ GH_USER = "SenzdettaCore"
 GH_REPO = "gitpusher_actions"
 GH_BRANCH = "main"
 
-USE_CDN = ENV.fetch("CDN", "0") == "0"
+USE_CDN = ENV.fetch("CDN", "0") == "1"
 VERSION = "v0.1." + Time.now.strftime("%Y%m%d")
 
 BLOCK = /action:\s*"([^"]+)"\s*\{(.*?)\}/m

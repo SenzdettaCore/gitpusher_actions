@@ -1,5 +1,5 @@
 action: "ruby/credits_generator" {
-    url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/credits_generator.tar.xz"
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/credits_generator.tar.xz"
     version: "v0.1.20261116"
     hash: "f523bcbc3e130fea7724cf5040cb84455c13133ce77013ecd152f3ef2d1b8d51"
 }
