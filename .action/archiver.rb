@@ -36,7 +36,7 @@ FIELD = /(\w+):\s*"([^"]*)"/
 
 def build_url(path)
     if USE_CDN
-        "cdn.jsdelivr.net/gh/#{GH_USER}/#{GH_REPO}@#{GH_BRANCH}/#{path}"
+        "purge.jsdelivr.net/gh/#{GH_USER}/#{GH_REPO}@#{GH_BRANCH}/#{path}"
     else
         "raw.githubusercontent.com/#{GH_USER}/#{GH_REPO}/#{GH_BRANCH}/#{path}"
     end
