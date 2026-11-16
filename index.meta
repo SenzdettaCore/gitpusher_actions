@@ -25,7 +25,7 @@ action: "ruby/whymd" {
 action: "ruby/vergen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/vergen.tar.xz"
     version: "v0.1.20261117"
-    hash: "2f9e133d4f19f03eeaca7f5597a2831c0a844a740d259a031be979f7ca607416"
+    hash: "515068d2e44072fec5cdd835322fbe8ae477d61ae2744eab3aad514a74d00137"
 }
 
 action: "ruby/srmdup" {
