@@ -52,3 +52,9 @@ action: "ruby/moregen" {
     hash: "242a2870459d45ce9bf5e3090d8f01f21dfbb66dabbd4612c317e363b291949d"
 }
 
+action: "ruby/iugen" {
+    url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/iugen.tar.xz"
+    version: "v0.1.20261116"
+    hash: "9c5c77177de1e8b11eba5df16669b61542ecd18d185b9c6fe1185c7fd9589b4d"
+}
+
