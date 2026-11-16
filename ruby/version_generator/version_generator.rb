@@ -49,7 +49,7 @@ status = IO.popen(
         "git", "-C", ROOT,
         "status", "--porcelain",
     ],
-    err: File::NULL, &:read,
+    err: File::NULL, &:read
 ).to_s
 
 if status.strip.empty? then

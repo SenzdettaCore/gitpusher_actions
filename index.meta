@@ -25,6 +25,6 @@ action: "ruby/whymd_generator" {
 action: "ruby/version_generator" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/version_generator.tar.xz"
     version: "v0.1.20261116"
-    hash: "f9f3ec1d6a5cf703e2351298029e9d01762e355088ae656b5ed7a0ac8e9c22e6"
+    hash: "9070e206947b1e5f4a3c881a64783c4a8648d1e461d0d931831c0ee380b1f822"
 }
 
