@@ -58,3 +58,9 @@ action: "ruby/iugen" {
     hash: "a41dc268ddb0c8f48302f16452eb4d38f25d97bd74c4c82c86a38cfb63a462aa"
 }
 
+action: "ruby/readmegen" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/readmegen.tar.xz"
+    version: "v0.1.20261117"
+    hash: "f9bc45fedca456447c4d9dcfb350813873c3f85fd417c2e689ff5161efab211b"
+}
+

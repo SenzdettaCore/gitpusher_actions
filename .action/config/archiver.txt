@@ -8,3 +8,4 @@ ruby/blsys
 ruby/disclaimergen
 ruby/moregen
 ruby/iugen
+ruby/readmegen
