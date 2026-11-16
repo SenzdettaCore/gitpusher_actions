@@ -42,7 +42,7 @@ if ! Dir.exist?(ROOT) then
     exit(1)
 end
 
-File.write(OUTPUT, CONTENT)
+File.write(OUTPUT, CONTENT.rstrip)
 
 printf(
     "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s\x1b[0m\n",
