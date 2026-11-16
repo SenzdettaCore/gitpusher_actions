@@ -43,6 +43,6 @@ action: "ruby/blsys" {
 action: "ruby/disclaimergen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/disclaimergen.tar.xz"
     version: "v0.1.20261116"
-    hash: "3873f744603ac6a192f506c7cf2256d06f7f84b0a145e66be57f32087c803e61"
+    hash: "68e15a6a93b053fbb8554fdc48ad0645e941cdc3bb8aef2e8de2c1a6c82f745f"
 }
 

@@ -40,7 +40,7 @@ File.write(
     OUTPUT,
     extra.empty? ?
         CONTENT :
-        "#{CONTENT}\n#{extra}",
+        "#{CONTENT}\n\n#{extra}",
 )
 
 printf(
