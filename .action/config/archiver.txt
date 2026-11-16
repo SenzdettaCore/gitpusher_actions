@@ -4,3 +4,5 @@ ruby/gitattributes
 ruby/whymd
 ruby/vergen
 ruby/srmdup
+ruby/blsys
+ruby/disclaimergen

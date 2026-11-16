@@ -34,3 +34,15 @@ action: "ruby/srmdup" {
     hash: "05339388c4a478816e39ab9e3b0f0d52ad2664bdd4485fa81da47364f7722964"
 }
 
+action: "ruby/blsys" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/blsys.tar.xz"
+    version: "v0.1.20261116"
+    hash: "404997c97ead00d8397a890d743655452f30aa599261bc8a27123d02d7a636c1"
+}
+
+action: "ruby/disclaimergen" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/disclaimergen.tar.xz"
+    version: "v0.1.20261116"
+    hash: "3873f744603ac6a192f506c7cf2256d06f7f84b0a145e66be57f32087c803e61"
+}
+
