@@ -46,3 +46,9 @@ action: "ruby/disclaimergen" {
     hash: "68e15a6a93b053fbb8554fdc48ad0645e941cdc3bb8aef2e8de2c1a6c82f745f"
 }
 
+action: "ruby/moregen" {
+    url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/moregen.tar.xz"
+    version: "v0.1.20261116"
+    hash: "e62f12bc84c305eebf207e336fb236f2a79e7103bf08c236256986b799539ca8"
+}
+
