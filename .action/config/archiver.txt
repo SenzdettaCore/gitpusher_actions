@@ -1,3 +1,4 @@
 ruby/credits_generator
 ruby/gitignore_generator
 ruby/gitattributes_generator
+ruby/whymd_generator

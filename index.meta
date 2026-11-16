@@ -16,3 +16,9 @@ action: "ruby/gitattributes_generator" {
     hash: "340e1912229695a20d47489c67597e97fc76dc64094a85af392f28c34cc3481c"
 }
 
+action: "ruby/whymd_generator" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/whymd_generator.tar.xz"
+    version: "v0.1.20261116"
+    hash: "d0d0b6ac0000b0b152f4ef51c160361e6f25ac53b7fdd79846892edbd5fd636a"
+}
+
