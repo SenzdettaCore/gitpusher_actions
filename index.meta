@@ -28,3 +28,9 @@ action: "ruby/version_generator" {
     hash: "9070e206947b1e5f4a3c881a64783c4a8648d1e461d0d931831c0ee380b1f822"
 }
 
+action: "ruby/srmdup" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/srmdup.tar.xz"
+    version: "v0.1.20261116"
+    hash: "6fc82364ffa359bd64f151e425b25420803010c4f9cbc176ef023e50e643a42c"
+}
+
