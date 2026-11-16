@@ -21,7 +21,7 @@ require "fileutils"
 ROOT = ENV.fetch("__root_project__").freeze
 OUTPUT = File.join(ROOT, ".gitignore").freeze
 
-CONTENT = <<~EOS
+CONTENT = <<~EOS.chomp
     /.privdat/
     /.devphase/
     /.deprecated/

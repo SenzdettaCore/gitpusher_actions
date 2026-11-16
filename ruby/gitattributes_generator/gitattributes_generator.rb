@@ -21,7 +21,7 @@ require "fileutils"
 ROOT = ENV.fetch("__root_project__").freeze
 OUTPUT = File.join(ROOT, ".gitattributes").freeze
 
-CONTENT = <<~EOS
+CONTENT = <<~EOS.chomp
     .action/** linguist-vendored
     .artifact/** linguist-vendored
     .blsys/** linguist-vendored

@@ -7,12 +7,12 @@ action: "ruby/credits_generator" {
 action: "ruby/gitignore_generator" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitignore_generator.tar.xz"
     version: "v0.1.20261116"
-    hash: "f5eaf84bc5891f145572a36cdf44efe91e79621dd510ab30d141fcc3cfbe80aa"
+    hash: "6f8849a7db5389d4d5ce6b9f4e0bf3f288dfed0e812814b011ff45b45c9397a8"
 }
 
 action: "ruby/gitattributes_generator" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitattributes_generator.tar.xz"
     version: "v0.1.20261116"
-    hash: "39e1f6b409b958e949309b05933626bbe3673d79b2f1ba46e63b76ccbeddae48"
+    hash: "05c02dadaf08929e2525367ba2b44daffd6efeab0a7f8e734d8a4733dbc39903"
 }
 
