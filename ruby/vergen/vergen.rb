@@ -47,7 +47,7 @@ end
 status = IO.popen(
     [
         "git", "-C", ROOT,
-        "status", "--porcelain",
+        "status", "--porcelain", "--untracked-files=no",
     ],
     err: File::NULL, &:read
 ).to_s
