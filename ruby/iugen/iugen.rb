@@ -100,7 +100,7 @@ def render(title, usage, options)
     if ! options.empty? then
         list = options.map {
             |key, desc| "* #{key}\n└── #{desc}"
-        }.join("\n\n")
+        }.join("\n")
         parts.push(
             "Optional options (can be used together):\n```text\n#{list}\n```",
         )
