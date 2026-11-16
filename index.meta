@@ -1,36 +1,36 @@
-action: "ruby/credits_generator" {
-    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/credits_generator.tar.xz"
+action: "ruby/creditsgen" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/creditsgen.tar.xz"
     version: "v0.1.20261116"
-    hash: "f523bcbc3e130fea7724cf5040cb84455c13133ce77013ecd152f3ef2d1b8d51"
+    hash: "5adaf62276110a3ae0e5848e859c9b5807b250d83e641deeff1703c94e73f3ee"
 }
 
-action: "ruby/gitignore_generator" {
-    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitignore_generator.tar.xz"
+action: "ruby/gitignore" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitignore.tar.xz"
     version: "v0.1.20261116"
-    hash: "d1462d75e16d9ee98a7b7a852d9222a6bfe23a4757447563d9b25bfab85ca7a3"
+    hash: "0a21b65fb0ae5065bf8a8db5b855b5304852dbb86da3a3ee94608e4ae5399947"
 }
 
-action: "ruby/gitattributes_generator" {
-    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitattributes_generator.tar.xz"
+action: "ruby/gitattributes" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitattributes.tar.xz"
     version: "v0.1.20261116"
-    hash: "340e1912229695a20d47489c67597e97fc76dc64094a85af392f28c34cc3481c"
+    hash: "b5a30abfc6e138928a4fd34c88dacfd0fdd819f784b76318e9fcdd2b95031f22"
 }
 
-action: "ruby/whymd_generator" {
-    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/whymd_generator.tar.xz"
+action: "ruby/whymd" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/whymd.tar.xz"
     version: "v0.1.20261116"
-    hash: "d0d0b6ac0000b0b152f4ef51c160361e6f25ac53b7fdd79846892edbd5fd636a"
+    hash: "ed796b6f609e2f4ffcdd56d9c7d8705f1b5363a4307a40dc265aea17aa3a9daa"
 }
 
-action: "ruby/version_generator" {
-    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/version_generator.tar.xz"
+action: "ruby/vergen" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/vergen.tar.xz"
     version: "v0.1.20261116"
-    hash: "9070e206947b1e5f4a3c881a64783c4a8648d1e461d0d931831c0ee380b1f822"
+    hash: "b19cd99a8f879fcb56879dba0bfbb8d2522895974d4348f22bd6f8633c3d0c92"
 }
 
 action: "ruby/srmdup" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/srmdup.tar.xz"
     version: "v0.1.20261116"
-    hash: "6fc82364ffa359bd64f151e425b25420803010c4f9cbc176ef023e50e643a42c"
+    hash: "05339388c4a478816e39ab9e3b0f0d52ad2664bdd4485fa81da47364f7722964"
 }
 

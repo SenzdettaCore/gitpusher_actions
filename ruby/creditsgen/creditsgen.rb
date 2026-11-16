@@ -20,7 +20,7 @@ require "yaml"
 require "fileutils"
 
 ROOT = ENV.fetch("__root_project__").freeze
-CONFIG = File.join(ROOT, ".action", "config", "credits_generator.yaml").freeze
+CONFIG = File.join(ROOT, ".action", "config", "creditsgen.yaml").freeze
 OUTPUT = File.join(ROOT, ".docs", "credits.md").freeze
 LINK_PREFIX = "../".freeze
 

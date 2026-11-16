@@ -19,7 +19,7 @@
 require "yaml"
 
 ROOT = ENV.fetch("__root_project__").freeze
-CONFIG = File.join(ROOT, ".action", "config", "version_generator.yaml").freeze
+CONFIG = File.join(ROOT, ".action", "config", "vergen.yaml").freeze
 TARGET_KEYS = %w[File replace new].freeze
 
 NEW_VERSION = "v0.1.#{Time.now.strftime("%Y%m%d")}".freeze

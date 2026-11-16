@@ -19,7 +19,7 @@
 require "yaml"
 
 ROOT = ENV.fetch("__root_project__").freeze
-CONFIG = File.join(ROOT, ".action", "config", "srmdup_target_list.yaml").freeze
+CONFIG = File.join(ROOT, ".action", "config", "srmdup.yaml").freeze
 TYPES = %w[file folder].freeze
 FLAGS = %w[sort remove_comment remove_duplicat remove_empty_line].freeze
 
