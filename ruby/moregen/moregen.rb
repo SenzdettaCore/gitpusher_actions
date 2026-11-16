@@ -50,7 +50,7 @@ File.write(
                 [] :
                 ["", *links]
         ),
-    ].join("\n"),
+    ].join("\n\n"),
 )
 
 printf(

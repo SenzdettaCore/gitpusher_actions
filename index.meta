@@ -19,7 +19,7 @@ action: "ruby/gitattributes" {
 action: "ruby/whymd" {
     url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/whymd.tar.xz"
     version: "v0.1.20261116"
-    hash: "ed796b6f609e2f4ffcdd56d9c7d8705f1b5363a4307a40dc265aea17aa3a9daa"
+    hash: "816ab48d3005dc4f3786737719537a4e57a4f392a0711e4bb2502995f4a4a709"
 }
 
 action: "ruby/vergen" {
@@ -49,6 +49,6 @@ action: "ruby/disclaimergen" {
 action: "ruby/moregen" {
     url: "cdn.jsdelivr.net/gh/SenzdettaCore/gitpusher_actions@main/ruby/moregen.tar.xz"
     version: "v0.1.20261116"
-    hash: "e62f12bc84c305eebf207e336fb236f2a79e7103bf08c236256986b799539ca8"
+    hash: "242a2870459d45ce9bf5e3090d8f01f21dfbb66dabbd4612c317e363b291949d"
 }
 

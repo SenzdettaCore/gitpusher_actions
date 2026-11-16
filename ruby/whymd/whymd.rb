@@ -22,7 +22,7 @@ ROOT = ENV.fetch("__root_project__").freeze
 OUTPUT = File.join(ROOT, ".docs", "why.md").freeze
 
 CONTENT = <<~'EOS'.chomp
-    # Why?
+    # WHY
 
     ### A Small Personal Note
     If you’ve landed on this page, you’ve probably noticed that the **Issues** and **Pull Requests (PRs)** features on this repository are intentionally disabled. </br>
