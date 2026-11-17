@@ -9,3 +9,4 @@ ruby/disclaimergen
 ruby/moregen
 ruby/iugen
 ruby/readmegen
+ruby/vscode_settings

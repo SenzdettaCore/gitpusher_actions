@@ -64,3 +64,9 @@ action: "ruby/readmegen" {
     hash: "12ea20160467c418c9e5ee538f39704091c0b6074a90450c4c72d3449f1bedc1"
 }
 
+action: "ruby/vscode_settings" {
+    url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/vscode_settings.tar.xz"
+    version: "v0.1.20261117"
+    hash: "8543538ca54e0889036d558e2ade727f35472ad9c5af9833c973efedc818776a"
+}
+
