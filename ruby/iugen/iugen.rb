@@ -24,6 +24,15 @@ DOCS = File.join(ROOT, ".docs").freeze
 
 SECTIONS = ["Init", "Section: Installation", "Section: Uninstallation"].freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 def fail_with(fmt, *args)
     printf(
         $stderr,
@@ -49,7 +58,7 @@ def parse_ini(path)
             if ! SECTIONS.include?(current) then
                 fail_with(
                     "Config: \x1b[0;32m%s\x1b[1;90m:\x1b[0;32m%d \x1b[0munknown section \x1b[1;90m[\x1b[0;32m%s\x1b[1;90m]\x1b[0m",
-                    path, num, current,
+                    path.delete_prefix("#{ROOT}/"), num, current,
                 )
             end
 
@@ -60,7 +69,7 @@ def parse_ini(path)
         if current.nil? then
             fail_with(
                 "Config: \x1b[0;32m%s\x1b[1;90m:\x1b[0;32m%d \x1b[0mkey outside of a section!",
-                path, num,
+                path.delete_prefix("#{ROOT}/"), num,
             )
         end
 
@@ -71,7 +80,7 @@ def parse_ini(path)
         if m.nil? then
             fail_with(
                 "Config: \x1b[0;32m%s\x1b[1;90m:\x1b[0;32m%d \x1b[0minvalid line, expected \x1b[0;37m\"\x1b[0;32mkey\x1b[0;37m\" \x1b[1;90m= \x1b[0;37m\"\x1b[0;32mvalue\x1b[0;37m\"\x1b[0m",
-                path, num,
+                path.delete_prefix("#{ROOT}/"), num,
             )
         end
 
@@ -81,7 +90,7 @@ def parse_ini(path)
         if data[current].key?(key) then
             fail_with(
                 "Config: \x1b[0;32m%s\x1b[1;90m:\x1b[0;32m%d \x1b[0mduplicate key \x1b[0;32m%s\x1b[0m",
-                path, num, key,
+                path.delete_prefix("#{ROOT}/"), num, key,
             )
         end
 
@@ -112,7 +121,7 @@ end
 if ! File.exist?(CONFIG) then
     fail_with(
         "Config: \x1b[0;32m%s \x1b[0mnot found!",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
 end
 
@@ -153,7 +162,7 @@ FileUtils.mkdir_p(DOCS)
     File.write(output, content)
     printf(
         "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s\x1b[0m\n",
-        output,
+        output.delete_prefix("#{ROOT}/"),
     )
 end
 

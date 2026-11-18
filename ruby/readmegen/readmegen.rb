@@ -25,6 +25,15 @@ CONFIG = File.join(ROOT, ".action", "config", "readmegen.yaml").freeze
 HEADER_KEYS = %w[output project version language platform license description].freeze
 SECTION_NAMES = %w[features disclaimer installation usage_example more].freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 def fail_with(fmt, *args)
     printf(
         $stderr,
@@ -75,7 +84,7 @@ end
 if ! File.exist?(CONFIG) then
     fail_with(
         "Config: \x1b[0;32m%s \x1b[0mnot found!",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
 end
 
@@ -84,7 +93,7 @@ cfg = YAML.safe_load_file(CONFIG)
 if ! cfg.is_a?(Hash) then
     fail_with(
         "Config: \x1b[0;32m%s \x1b[0mempty or invalid format!",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
 end
 
@@ -149,62 +158,62 @@ sections.each do |entry|
     title = name.split("_").map(&:capitalize).join(" ")
 
     case name
-    when "features"
-        list = items_of(body, name).map { |i| "- #{i}" }
-        blocks.push(
-            "## #{title}\n#{(list + ["- And more features."]).join("\n")}",
-        )
-    when "disclaimer"
-        path = docpath_of(body, name)
-        blocks.push(
-            "## #{title}\n" \
-            "Please read #{link_for(path)} before using this tool. </br>\n" \
-            "Use this software at your own risk. </br>\n" \
-            "The author is not responsible for any damage, data loss, or issues that may result from its use."
-        )
-    when "installation"
-        path = docpath_of(body, name)
-        file = File.join(ROOT, path)
-
-        if ! File.exist?(file) then
-            fail_with(
-                "File: \x1b[0;32m%s \x1b[0mnot found!",
-                file,
+        when "features"
+            list = items_of(body, name).map { |i| "- #{i}" }
+            blocks.push(
+                "## #{title}\n#{(list + ["- And more features."]).join("\n")}",
             )
-        end
-
-        code = File.read(file)[/```bash\n(.*?)\n```/m, 1]
-
-        if code.nil? then
-            fail_with(
-                "File: \x1b[0;32m%s \x1b[0mhas no bash usage block!",
-                file,
+        when "disclaimer"
+            path = docpath_of(body, name)
+            blocks.push(
+                "## #{title}\n" \
+                "Please read #{link_for(path)} before using this tool. <br>\n" \
+                "Use this software at your own risk. <br>\n" \
+                "The author is not responsible for any damage, data loss, or issues that may result from its use."
             )
-        end
+        when "installation"
+            path = docpath_of(body, name)
+            file = File.join(ROOT, path)
 
-        code = code.lines.map {
-            |l| l.chomp.sub(
-                /\s+#\s*<options\.\.\.>\s*\z/,
-                "",
+            if ! File.exist?(file) then
+                fail_with(
+                    "File: \x1b[0;32m%s \x1b[0mnot found!",
+                    file.delete_prefix("#{ROOT}/"),
+                )
+            end
+
+            code = File.read(file)[/```bash\n(.*?)\n```/m, 1]
+
+            if code.nil? then
+                fail_with(
+                    "File: \x1b[0;32m%s \x1b[0mhas no bash usage block!",
+                    file.delete_prefix("#{ROOT}/"),
+                )
+            end
+
+            code = code.lines.map {
+                |l| l.chomp.sub(
+                    /\s+#\s*<options\.\.\.>\s*\z/,
+                    "",
+                )
+            }.join("\n")
+
+            blocks.push(
+                "## #{title}\nQuick install:\n```bash\n#{code}\n```\n" \
+                "For more detailed installation instructions, see #{link_for(path)}."
             )
-        }.join("\n")
-
-        blocks.push(
-            "## #{title}\nQuick install:\n```bash\n#{code}\n```\n" \
-            "For more detailed installation instructions, see #{link_for(path)}."
-        )
-    when "usage_example"
-        list = items_of(body, name).map {
-            |i| "#{command} #{i}"
-        }
-        blocks.push(
-            "## #{title}\n```bash\n#{list.join("\n")}\n```\nAnd more commands.",
-        )
-    when "more"
-        path = docpath_of(body, name)
-        blocks.push(
-            "## #{title}\nFor further information, visit: #{link_for(path)}",
-        )
+        when "usage_example"
+            list = items_of(body, name).map {
+                |i| "#{command} #{i}"
+            }
+            blocks.push(
+                "## #{title}\n```bash\n#{list.join("\n")}\n```\nAnd more commands.",
+            )
+        when "more"
+            path = docpath_of(body, name)
+            blocks.push(
+                "## #{title}\nFor further information, visit: #{link_for(path)}",
+            )
     end
 end
 
@@ -217,7 +226,7 @@ File.write(output, blocks.join("\n\n"))
 
 printf(
     "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m%d \x1b[0;37msections\x1b[1;90m)\x1b[0m\n",
-    output, sections.length,
+    output.delete_prefix("#{ROOT}/"), sections.length,
 )
 
 # Copyright (c) 2026 Senzdetta

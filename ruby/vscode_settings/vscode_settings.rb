@@ -61,7 +61,7 @@ File.write(OUTPUT, CONTENT)
 
 printf(
     "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s\x1b[0m\n",
-    OUTPUT,
+    OUTPUT.delete_prefix("#{ROOT}/"),
 )
 
 # Copyright (c) 2026 Senzdetta

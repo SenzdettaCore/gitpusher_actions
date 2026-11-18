@@ -27,11 +27,20 @@ LINK_PREFIX = "../".freeze
 SOURCE_KEYS = %w[name url avatar items].freeze
 ITEM_KEYS = %w[module type path license license_file readme_file modified_info].freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 if ! File.exist?(CONFIG) then
     printf(
         $stderr,
         "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[0mnot found!\n",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
     exit(1)
 end
@@ -42,7 +51,7 @@ if ! cfg.is_a?(Hash) then
     printf(
         $stderr,
         "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[0mempty or invalid format!\n",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
     exit(1)
 end
@@ -140,20 +149,20 @@ sources.each do |source|
         end
 
         rendered.push(<<~HTML.chomp.gsub(/^/, "      "))
-            <b>#{item["module"]}</b> · #{item["type"]}</br>
-            <code>#{item["path"]}</code></br>
+            <b>#{item["module"]}</b> · #{item["type"]}<br>
+            <code>#{item["path"]}</code><br>
             <a href="#{LINK_PREFIX}#{item["license_file"]}">#{item["license"]}</a> · <a href="#{LINK_PREFIX}#{item["readme_file"]}">README</a> · <a href="#{LINK_PREFIX}#{item["modified_info"]}">Modified</a>
         HTML
     end
 
-    body = rendered.join("</br></br>\n")
+    body = rendered.join("<br><br>\n")
 
     blocks.push(<<~HTML)
         <table>
           <tr>
             <td width="90" align="center" valign="middle"><img src="#{source["avatar"]}" width="70" /></td>
             <td valign="top">
-              <b><a href="#{source["url"]}">#{source["name"]}</a></b></br></br>
+              <b><a href="#{source["url"]}">#{source["name"]}</a></b><br><br>
         #{body}
             </td>
           </tr>
@@ -168,7 +177,7 @@ File.write(OUTPUT, "# #{heading}\n\n#{html.chomp}")
 
 printf(
     "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m%d \x1b[0;37msources\x1b[1;90m)\x1b[0m\n",
-    OUTPUT, sources.length,
+    OUTPUT.delete_prefix("#{ROOT}/"), sources.length,
 )
 
 # Copyright (c) 2026 Senzdetta

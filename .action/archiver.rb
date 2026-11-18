@@ -117,6 +117,7 @@ File.read(LST, encoding: "utf-8").each_line do |raw|
     dir = File.join(ROOT, line)
     unless File.directory?(dir)
         printf(
+            $stderr,
             "\x1b[0;33m[!] \x1b[0mSkipping: \x1b[0;32m%s \x1b[0mfile not found!\n",
             line,
         )

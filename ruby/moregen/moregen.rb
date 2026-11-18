@@ -21,11 +21,20 @@ DOCS = File.join(ROOT, ".docs").freeze
 SELF = "__more__.md".freeze
 OUTPUT = File.join(DOCS, SELF).freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 if ! Dir.exist?(DOCS) then
     printf(
         $stderr,
         "\x1b[1;31m[!] \x1b[0mFolder: \x1b[0;32m%s \x1b[0mnot found!\n",
-        DOCS,
+        DOCS.delete_prefix("#{ROOT}/"),
     )
     exit(1)
 end
@@ -55,7 +64,7 @@ File.write(
 
 printf(
     "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m%d \x1b[0;37mfiles\x1b[1;90m)\x1b[0m\n",
-    OUTPUT, files.length,
+    OUTPUT.delete_prefix("#{ROOT}/"), files.length,
 )
 
 # Copyright (c) 2026 Senzdetta

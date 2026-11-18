@@ -23,6 +23,15 @@ CONFIG = File.join(ROOT, ".action", "config", "srmdup.yaml").freeze
 TYPES = %w[file folder].freeze
 FLAGS = %w[sort remove_comment remove_duplicat remove_empty_line].freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 def fail_with(fmt, *args)
     printf(
         $stderr,
@@ -62,7 +71,7 @@ end
 if ! File.exist?(CONFIG) then
     fail_with(
         "Config: \x1b[0;32m%s \x1b[0mnot found!",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
 end
 
@@ -71,7 +80,7 @@ targets = YAML.safe_load_file(CONFIG)
 if ! targets.is_a?(Array) || targets.empty? then
     fail_with(
         "Config: \x1b[0;32m%s \x1b[0mmust be a non-empty list!",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
 end
 
@@ -122,7 +131,7 @@ targets.each do |t|
             if ! File.file?(path) then
                 fail_with(
                     "File: \x1b[0;32m%s \x1b[0mnot found!",
-                    path,
+                    path.delete_prefix("#{ROOT}/"),
                 )
             end
             [path]
@@ -130,7 +139,7 @@ targets.each do |t|
             if ! File.directory?(path) then
                 fail_with(
                     "Folder: \x1b[0;32m%s \x1b[0mnot found!",
-                    path,
+                    path.delete_prefix("#{ROOT}/"),
                 )
             end
 
@@ -166,12 +175,12 @@ targets.each do |t|
         if removed.nil? then
             printf(
                 "\x1b[0;34m[*] \x1b[0mUnchanged: \x1b[0;32m%s\x1b[0m\n",
-                f,
+                f.delete_prefix("#{ROOT}/"),
             )
         else
             printf(
                 "\x1b[0;32m[+] \x1b[0mCleaned: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m-%d \x1b[0;37mlines\x1b[1;90m)\x1b[0m\n",
-                f, removed,
+                f.delete_prefix("#{ROOT}/"), removed,
             )
         end
     end

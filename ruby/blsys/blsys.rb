@@ -75,7 +75,7 @@ downloaded.each do |name, body|
     File.binwrite(output, body)
     printf(
         "\x1b[0;32m[+] \x1b[0mDownloaded: \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s\x1b[0m\n",
-        "#{BASE_URL}/#{name}", output,
+        "#{BASE_URL}/#{name}", output.delete_prefix("#{ROOT}/"),
     )
 end
 

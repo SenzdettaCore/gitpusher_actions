@@ -1,72 +1,72 @@
 action: "ruby/creditsgen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/creditsgen.tar.xz"
-    version: "v0.1.20261116"
-    hash: "5adaf62276110a3ae0e5848e859c9b5807b250d83e641deeff1703c94e73f3ee"
+    version: "v0.1.20261119"
+    hash: "9f2f79b0187e57e8b15222832b9fba509434f52a6e75e7c0709c4fa6a633cbfa"
 }
 
 action: "ruby/gitignore" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitignore.tar.xz"
-    version: "v0.1.20261118"
-    hash: "cda8e27bdec17d3dd9bc93890697dc7bc4e2eeab237e14048d59601ad999c008"
+    version: "v0.1.20261119"
+    hash: "75ca52d7b2a1c1cceef2eaa1f2b6d5a3a391ac64a4c5b318df6af0d4c7f6b3a9"
 }
 
 action: "ruby/gitattributes" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitattributes.tar.xz"
-    version: "v0.1.20261116"
-    hash: "b5a30abfc6e138928a4fd34c88dacfd0fdd819f784b76318e9fcdd2b95031f22"
+    version: "v0.1.20261119"
+    hash: "bbc0c444df71ce97e551a70875a7502edb6fb04cd1e4b5a698129dfd89408fff"
 }
 
 action: "ruby/whymd" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/whymd.tar.xz"
-    version: "v0.1.20261116"
-    hash: "816ab48d3005dc4f3786737719537a4e57a4f392a0711e4bb2502995f4a4a709"
+    version: "v0.1.20261119"
+    hash: "cccfcf2e388e96ea2fd726c6ea62030741c406899a177e3ddb0a89c44b9b0759"
 }
 
 action: "ruby/vergen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/vergen.tar.xz"
-    version: "v0.1.20261117"
-    hash: "515068d2e44072fec5cdd835322fbe8ae477d61ae2744eab3aad514a74d00137"
+    version: "v0.1.20261119"
+    hash: "66989b545b6364216e2b8a4cdc2b4ae71b0401dccc980b02936f6f8e36fa899c"
 }
 
 action: "ruby/srmdup" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/srmdup.tar.xz"
-    version: "v0.1.20261116"
-    hash: "05339388c4a478816e39ab9e3b0f0d52ad2664bdd4485fa81da47364f7722964"
+    version: "v0.1.20261119"
+    hash: "e0069ef3851e9d9e17d0a171cea1eeea68fe804793dd2da441ccc350acccbeba"
 }
 
 action: "ruby/blsys" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/blsys.tar.xz"
-    version: "v0.1.20261118"
-    hash: "83e81d9aa6338d4f8ec1a8a29247f808d261eb7c070377d960bf4846b129d2a3"
+    version: "v0.1.20261119"
+    hash: "d105e50467a035992158d34b458da362a8def39a696d510154ef0c961a350436"
 }
 
 action: "ruby/disclaimergen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/disclaimergen.tar.xz"
-    version: "v0.1.20261116"
-    hash: "68e15a6a93b053fbb8554fdc48ad0645e941cdc3bb8aef2e8de2c1a6c82f745f"
+    version: "v0.1.20261119"
+    hash: "eaf56b00cd4f3a01a0a66696715154c0fc99e361c3f4c562de1af44f08a65926"
 }
 
 action: "ruby/moregen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/moregen.tar.xz"
-    version: "v0.1.20261116"
-    hash: "242a2870459d45ce9bf5e3090d8f01f21dfbb66dabbd4612c317e363b291949d"
+    version: "v0.1.20261119"
+    hash: "fff1daa26852a25eabf902c6c09bb85e90e4ad908d1378b63785561ca4be14f5"
 }
 
 action: "ruby/iugen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/iugen.tar.xz"
-    version: "v0.1.20261116"
-    hash: "a41dc268ddb0c8f48302f16452eb4d38f25d97bd74c4c82c86a38cfb63a462aa"
+    version: "v0.1.20261119"
+    hash: "60543c7daff74a9a985111699f16a1d0a02eedaac8a4315838225ea6e1d0bd24"
 }
 
 action: "ruby/readmegen" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/readmegen.tar.xz"
-    version: "v0.1.20261117"
-    hash: "12ea20160467c418c9e5ee538f39704091c0b6074a90450c4c72d3449f1bedc1"
+    version: "v0.1.20261119"
+    hash: "c28d5882869ce40ad562b54978cd4b616c103555e5973bc5cf7bc8bdb8ee8eda"
 }
 
 action: "ruby/vscode_settings" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/vscode_settings.tar.xz"
-    version: "v0.1.20261117"
-    hash: "8543538ca54e0889036d558e2ade727f35472ad9c5af9833c973efedc818776a"
+    version: "v0.1.20261119"
+    hash: "17bacd6bd8b3b281ffa5505a6b74e61e2ce1e29c6fbfa71df49b5b4aa29abee9"
 }
 

@@ -24,11 +24,20 @@ TARGET_KEYS = %w[File replace new].freeze
 
 NEW_VERSION = "v0.1.#{Time.now.strftime("%Y%m%d")}".freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 if ! File.exist?(CONFIG) then
     printf(
         $stderr,
         "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[0mnot found!\n",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
     exit(1)
 end
@@ -39,7 +48,7 @@ if ! targets.is_a?(Array) || targets.empty? then
     printf(
         $stderr,
         "\x1b[1;31m[!] \x1b[0mConfig: \x1b[0;32m%s \x1b[0mmust be a non-empty list!\n",
-        CONFIG,
+        CONFIG.delete_prefix("#{ROOT}/"),
     )
     exit(1)
 end
@@ -55,7 +64,7 @@ status = IO.popen(
 
 if status.strip.empty? then
     printf(
-        "\x1b[0;33m[!] \x1b[0mClean repo, skip update version.\n",
+        "\x1b[1;34m[*] \x1b[0mClean repo, skip update version.\n",
     )
     exit(0)
 end
@@ -88,7 +97,7 @@ targets.each do |target|
         printf(
             $stderr,
             "\x1b[1;31m[!] \x1b[0mFile: \x1b[0;32m%s \x1b[0mnot found!\n",
-            path,
+            path.delete_prefix("#{ROOT}/"),
         )
         exit(1)
     end
@@ -106,7 +115,7 @@ targets.each do |target|
         printf(
             $stderr,
             "\x1b[1;31m[!] \x1b[0mKeyword: \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s \x1b[0mnot found!\n",
-            path, keyword,
+            path.delete_prefix("#{ROOT}/"), keyword,
         )
         exit(1)
     end
@@ -115,7 +124,7 @@ targets.each do |target|
 
     printf(
         "\x1b[0;32m[+] \x1b[0mUpdating version: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m%s%s\x1b[1;90m)\x1b[0m\n",
-        path, keyword, value,
+        path.delete_prefix("#{ROOT}/"), keyword, value,
     )
 end
 

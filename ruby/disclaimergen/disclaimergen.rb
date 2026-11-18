@@ -22,12 +22,21 @@ ROOT = ENV.fetch("__root_project__").freeze
 CONFIG = File.join(ROOT, ".action", "config", "disclaimergen.md").freeze
 OUTPUT = File.join(ROOT, ".docs", "disclaimer.md").freeze
 
+if ! Dir.exist?(ROOT) then
+    printf(
+        $stderr,
+        "\x1b[1;31m[!] \x1b[0mRoot: \x1b[0;32m%s \x1b[0mnot found!\n",
+        ROOT,
+    )
+    exit(1)
+end
+
 CONTENT = <<~'EOS'.chomp
     # DISCLAIMER
 
     ## **Version 0.1 (Experimental Status)**
-    This tool is currently in its early **v0.1** stage and is considered **unstable**. </br>
-    You may encounter bugs, system errors, or unexpected behavior. </br>
+    This tool is currently in its early **v0.1** stage and is considered **unstable**. <br>
+    You may encounter bugs, system errors, or unexpected behavior. <br>
     Additionally, core structures, commands, and language configurations are highly subject to change in future updates.
 EOS
 
@@ -45,7 +54,7 @@ File.write(
 
 printf(
     "\x1b[0;32m[+] \x1b[0mGenerated: \x1b[0;32m%s\x1b[0m\n",
-    OUTPUT,
+    OUTPUT.delete_prefix("#{ROOT}/"),
 )
 
 # Copyright (c) 2026 Senzdetta
