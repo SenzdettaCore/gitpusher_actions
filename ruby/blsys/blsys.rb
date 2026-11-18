@@ -41,7 +41,7 @@ FILES.each do |name|
     rescue StandardError => e
         printf(
             $stderr,
-            "\x1b[1;31m[!] \x1b[0mDownload: \x1b[0;32m%s \x1b[0mfailed \x1b[1;90m(\x1b[0;36m%s\x1b[1;90m)\x1b[0m\n",
+            "\x1b[1;31m[!] \x1b[0mDownload: \x1b[0;32m%s \x1b[0mfailed \x1b[1;90m(\x1b[1;31m%s\x1b[1;90m)\x1b[0m\n",
             url, e.message,
         )
         exit(1)
@@ -50,7 +50,7 @@ FILES.each do |name|
     if ! response.is_a?(Net::HTTPSuccess) then
         printf(
             $stderr,
-            "\x1b[1;31m[!] \x1b[0mDownload: \x1b[0;32m%s \x1b[0mHTTP \x1b[0;36m%s\x1b[0m\n",
+            "\x1b[1;31m[!] \x1b[0mDownload: \x1b[0;32m%s \x1b[0mHTTP \x1b[1;31m%s\x1b[0m\n",
             url, response.code,
         )
         exit(1)
@@ -75,7 +75,7 @@ downloaded.each do |name, body|
     File.binwrite(output, body)
     printf(
         "\x1b[0;32m[+] \x1b[0mDownloaded: \x1b[0;32m%s \x1b[1;90m-> \x1b[0;32m%s\x1b[0m\n",
-        "#{BASE_URL}/#{name}", output,
+        "#{BASE_URL}/#{name}", output.delete_prefix("#{ROOT}/"),
     )
 end
 
