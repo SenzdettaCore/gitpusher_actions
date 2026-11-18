@@ -20,7 +20,7 @@ require "uri"
 require "net/http"
 
 ROOT = ENV.fetch("__root_project__").freeze
-BASE_URL = "https://cdn.jsdelivr.net/gh/SenzdettaCore/blsys@main/scripts".freeze
+BASE_URL = "https://raw.githubusercontent.com/SenzdettaCore/blsys/main/scripts".freeze
 FILES = %w[install.sh uninstall.sh].freeze
 
 if ! Dir.exist?(ROOT) then

@@ -36,8 +36,8 @@ action: "ruby/srmdup" {
 
 action: "ruby/blsys" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/blsys.tar.xz"
-    version: "v0.1.20261116"
-    hash: "404997c97ead00d8397a890d743655452f30aa599261bc8a27123d02d7a636c1"
+    version: "v0.1.20261118"
+    hash: "465597e774847bca4b205e6eb412ebad38531f1ac968c08e84ceaca6b81e9026"
 }
 
 action: "ruby/disclaimergen" {
