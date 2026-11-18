@@ -6,8 +6,8 @@ action: "ruby/creditsgen" {
 
 action: "ruby/gitignore" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/gitignore.tar.xz"
-    version: "v0.1.20261116"
-    hash: "0a21b65fb0ae5065bf8a8db5b855b5304852dbb86da3a3ee94608e4ae5399947"
+    version: "v0.1.20261118"
+    hash: "cda8e27bdec17d3dd9bc93890697dc7bc4e2eeab237e14048d59601ad999c008"
 }
 
 action: "ruby/gitattributes" {

@@ -28,6 +28,7 @@ CONTENT = <<~EOS.chomp
     /.legacy/
 
     __pycache__/
+    node_modules/
 
     *.pyc
     .nomedia
