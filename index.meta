@@ -31,7 +31,7 @@ action: "ruby/vergen" {
 action: "ruby/srmdup" {
     url: "raw.githubusercontent.com/SenzdettaCore/gitpusher_actions/main/ruby/srmdup.tar.xz"
     version: "v0.1.20261119"
-    hash: "e0069ef3851e9d9e17d0a171cea1eeea68fe804793dd2da441ccc350acccbeba"
+    hash: "e1c7a48a871ee8f3c3a6bd662df9f496939a96be24b2d96060b61671aae386e8"
 }
 
 action: "ruby/blsys" {

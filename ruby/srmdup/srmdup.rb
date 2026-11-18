@@ -131,7 +131,7 @@ targets.each do |t|
             if ! File.file?(path) then
                 fail_with(
                     "File: \x1b[0;32m%s \x1b[0mnot found!",
-                    path.delete_prefix("#{ROOT}/"),
+                    path.delete_prefix("#{root_real}/"),
                 )
             end
             [path]
@@ -139,7 +139,7 @@ targets.each do |t|
             if ! File.directory?(path) then
                 fail_with(
                     "Folder: \x1b[0;32m%s \x1b[0mnot found!",
-                    path.delete_prefix("#{ROOT}/"),
+                    path.delete_prefix("#{root_real}/"),
                 )
             end
 
@@ -175,12 +175,12 @@ targets.each do |t|
         if removed.nil? then
             printf(
                 "\x1b[0;34m[*] \x1b[0mUnchanged: \x1b[0;32m%s\x1b[0m\n",
-                f.delete_prefix("#{ROOT}/"),
+                f.delete_prefix("#{root_real}/"),
             )
         else
             printf(
                 "\x1b[0;32m[+] \x1b[0mCleaned: \x1b[0;32m%s \x1b[1;90m(\x1b[0;36m-%d \x1b[0;37mlines\x1b[1;90m)\x1b[0m\n",
-                f.delete_prefix("#{ROOT}/"), removed,
+                f.delete_prefix("#{root_real}/"), removed,
             )
         end
     end
